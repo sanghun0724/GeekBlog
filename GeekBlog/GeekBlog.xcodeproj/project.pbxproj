@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B44524E1F2275950B7D9293 /* Pods_GeekBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED60E1D11A75AE3DE5EE654 /* Pods_GeekBlog.framework */; };
 		B632613B27944460004E1E97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613A27944460004E1E97 /* AppDelegate.swift */; };
 		B632613D27944460004E1E97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613C27944460004E1E97 /* SceneDelegate.swift */; };
 		B632613F27944460004E1E97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613E27944460004E1E97 /* HomeViewController.swift */; };
@@ -27,9 +28,14 @@
 		B632616D279449C0004E1E97 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616C279449BF004E1E97 /* SearchResultViewController.swift */; };
 		B632616F279449EA004E1E97 /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616E279449EA004E1E97 /* PostEditorViewController.swift */; };
 		B6326171279449FA004E1E97 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326170279449FA004E1E97 /* PublishPostViewController.swift */; };
+		B632617327945A90004E1E97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B632617227945A90004E1E97 /* GoogleService-Info.plist */; };
+		B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326175279461D2004E1E97 /* DatabaseManager.swift */; };
+		B63261782794629E004E1E97 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63261772794629E004E1E97 /* AuthManager.swift */; };
+		B632617A279462DA004E1E97 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326179279462DA004E1E97 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		717CBCADCA3653BD6DD739B6 /* Pods-GeekBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekBlog.release.xcconfig"; path = "Target Support Files/Pods-GeekBlog/Pods-GeekBlog.release.xcconfig"; sourceTree = "<group>"; };
 		B632613727944460004E1E97 /* GeekBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeekBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B632613A27944460004E1E97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B632613C27944460004E1E97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +58,12 @@
 		B632616C279449BF004E1E97 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		B632616E279449EA004E1E97 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		B6326170279449FA004E1E97 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		B632617227945A90004E1E97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B6326175279461D2004E1E97 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		B63261772794629E004E1E97 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B6326179279462DA004E1E97 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		D98C9A219518CFB011FC92BE /* Pods-GeekBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekBlog.debug.xcconfig"; path = "Target Support Files/Pods-GeekBlog/Pods-GeekBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		DED60E1D11A75AE3DE5EE654 /* Pods_GeekBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +71,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B44524E1F2275950B7D9293 /* Pods_GeekBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EDEC7D124074EAAB3514A71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D98C9A219518CFB011FC92BE /* Pods-GeekBlog.debug.xcconfig */,
+				717CBCADCA3653BD6DD739B6 /* Pods-GeekBlog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9F4DB159563508FF33AC5C6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DED60E1D11A75AE3DE5EE654 /* Pods_GeekBlog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B632612E27944460004E1E97 = {
 			isa = PBXGroup;
 			children = (
 				B632613927944460004E1E97 /* GeekBlog */,
 				B632613827944460004E1E97 /* Products */,
+				4EDEC7D124074EAAB3514A71 /* Pods */,
+				9F4DB159563508FF33AC5C6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,8 +153,12 @@
 		B632615127944663004E1E97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B632617227945A90004E1E97 /* GoogleService-Info.plist */,
 				B632613A27944460004E1E97 /* AppDelegate.swift */,
 				B632613C27944460004E1E97 /* SceneDelegate.swift */,
+				B6326175279461D2004E1E97 /* DatabaseManager.swift */,
+				B63261772794629E004E1E97 /* AuthManager.swift */,
+				B6326179279462DA004E1E97 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -152,14 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B632615D279448D9004E1E97 /* OnBoarding */,
-				B632616227944968004E1E97 /* PostViewController.swift */,
-				B632616427944980004E1E97 /* EditViewController.swift */,
-				B63261662794498E004E1E97 /* SettingViewController.swift */,
-				B6326168279449A0004E1E97 /* ListViewController.swift */,
-				B632616A279449B2004E1E97 /* SearchViewController.swift */,
-				B632616C279449BF004E1E97 /* SearchResultViewController.swift */,
-				B632616E279449EA004E1E97 /* PostEditorViewController.swift */,
-				B6326170279449FA004E1E97 /* PublishPostViewController.swift */,
+				B632617427946122004E1E97 /* General */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -173,6 +202,21 @@
 			path = OnBoarding;
 			sourceTree = "<group>";
 		};
+		B632617427946122004E1E97 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B632616227944968004E1E97 /* PostViewController.swift */,
+				B632616427944980004E1E97 /* EditViewController.swift */,
+				B63261662794498E004E1E97 /* SettingViewController.swift */,
+				B6326168279449A0004E1E97 /* ListViewController.swift */,
+				B632616A279449B2004E1E97 /* SearchViewController.swift */,
+				B632616C279449BF004E1E97 /* SearchResultViewController.swift */,
+				B632616E279449EA004E1E97 /* PostEditorViewController.swift */,
+				B6326170279449FA004E1E97 /* PublishPostViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B632614B27944464004E1E97 /* Build configuration list for PBXNativeTarget "GeekBlog" */;
 			buildPhases = (
+				4FFF613EFAD9D53D4FBDC4F7 /* [CP] Check Pods Manifest.lock */,
 				B632613327944460004E1E97 /* Sources */,
 				B632613427944460004E1E97 /* Frameworks */,
 				B632613527944460004E1E97 /* Resources */,
+				23360F0C361FE7012AB7B973 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,7 +255,7 @@
 				};
 			};
 			buildConfigurationList = B632613227944460004E1E97 /* Build configuration list for PBXProject "GeekBlog" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -232,12 +278,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B632614727944464004E1E97 /* LaunchScreen.storyboard in Resources */,
+				B632617327945A90004E1E97 /* GoogleService-Info.plist in Resources */,
 				B632614427944464004E1E97 /* Assets.xcassets in Resources */,
 				B632614227944460004E1E97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23360F0C361FE7012AB7B973 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekBlog/Pods-GeekBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekBlog/Pods-GeekBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeekBlog/Pods-GeekBlog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FFF613EFAD9D53D4FBDC4F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeekBlog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B632613327944460004E1E97 /* Sources */ = {
@@ -251,12 +340,15 @@
 				B63261612794493C004E1E97 /* RegistrationViewController.swift in Sources */,
 				B632616327944968004E1E97 /* PostViewController.swift in Sources */,
 				B632616F279449EA004E1E97 /* PostEditorViewController.swift in Sources */,
+				B632617A279462DA004E1E97 /* StorageManager.swift in Sources */,
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
+				B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */,
 				B632615F27944914004E1E97 /* LoginViewController.swift in Sources */,
 				B632616D279449C0004E1E97 /* SearchResultViewController.swift in Sources */,
 				B632615A27944834004E1E97 /* ProfileViewController.swift in Sources */,
 				B632616B279449B2004E1E97 /* SearchViewController.swift in Sources */,
 				B632613B27944460004E1E97 /* AppDelegate.swift in Sources */,
+				B63261782794629E004E1E97 /* AuthManager.swift in Sources */,
 				B632616527944980004E1E97 /* EditViewController.swift in Sources */,
 				B632613D27944460004E1E97 /* SceneDelegate.swift in Sources */,
 				B6326169279449A0004E1E97 /* ListViewController.swift in Sources */,
@@ -404,6 +496,7 @@
 		};
 		B632614C27944464004E1E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98C9A219518CFB011FC92BE /* Pods-GeekBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -432,6 +525,7 @@
 		};
 		B632614D27944464004E1E97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717CBCADCA3653BD6DD739B6 /* Pods-GeekBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
