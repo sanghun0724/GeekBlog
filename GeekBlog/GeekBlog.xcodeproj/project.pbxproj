@@ -17,6 +17,7 @@
 		B632615627944787004E1E97 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632615527944787004E1E97 /* CameraViewController.swift */; };
 		B632615827944822004E1E97 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632615727944822004E1E97 /* NotificationViewController.swift */; };
 		B632615A27944834004E1E97 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632615927944834004E1E97 /* ProfileViewController.swift */; };
+		B632615F27944914004E1E97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632615E27944914004E1E97 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B632615527944787004E1E97 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B632615727944822004E1E97 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		B632615927944834004E1E97 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B632615E27944914004E1E97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +78,8 @@
 		B632614E2794449C004E1E97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B632613E27944460004E1E97 /* HomeViewController.swift */,
-				B63261532794470F004E1E97 /* ExploreViewController.swift */,
-				B632615527944787004E1E97 /* CameraViewController.swift */,
-				B632615727944822004E1E97 /* NotificationViewController.swift */,
-				B632615927944834004E1E97 /* ProfileViewController.swift */,
+				B632615C279448C3004E1E97 /* Others */,
+				B632615B27944855004E1E97 /* Core Tabs */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +116,34 @@
 				B632614527944464004E1E97 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B632615B27944855004E1E97 /* Core Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				B632613E27944460004E1E97 /* HomeViewController.swift */,
+				B63261532794470F004E1E97 /* ExploreViewController.swift */,
+				B632615527944787004E1E97 /* CameraViewController.swift */,
+				B632615727944822004E1E97 /* NotificationViewController.swift */,
+				B632615927944834004E1E97 /* ProfileViewController.swift */,
+			);
+			path = "Core Tabs";
+			sourceTree = "<group>";
+		};
+		B632615C279448C3004E1E97 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B632615D279448D9004E1E97 /* OnBoarding */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		B632615D279448D9004E1E97 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				B632615E27944914004E1E97 /* LoginViewController.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +221,7 @@
 				B632615627944787004E1E97 /* CameraViewController.swift in Sources */,
 				B632615827944822004E1E97 /* NotificationViewController.swift in Sources */,
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
+				B632615F27944914004E1E97 /* LoginViewController.swift in Sources */,
 				B632615A27944834004E1E97 /* ProfileViewController.swift in Sources */,
 				B632613B27944460004E1E97 /* AppDelegate.swift in Sources */,
 				B632613D27944460004E1E97 /* SceneDelegate.swift in Sources */,
