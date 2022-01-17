@@ -32,7 +32,16 @@ public class AuthManager {
                     }
                     
                     //insert into database
-                    
+                    DatabaseManager.shared.insertNewUser(with: email, username: username) { inserted in
+                        if inserted {
+                            completion(true)
+                            return
+                        } else  {
+                            //fail to inset to database
+                            completion(false)
+                            return
+                        }
+                    }
                 }
             }
             else {
