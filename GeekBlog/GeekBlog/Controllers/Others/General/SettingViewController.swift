@@ -47,7 +47,21 @@ final class SettingViewController: UIViewController {
     }
   
     private func didTapLogOut() {
-        
+        AuthManager.shared.logOut { success in
+            DispatchQueue.main.async {
+                if success {
+                    //present log in
+                    let loginVC = LoginViewController()
+                    loginVC.modalPresentationStyle = .fullScreen
+                    self.present(loginVC, animated: true) {
+                        self.navigationController?.popToRootViewController(animated: false)
+                        self.tabBarController?.selectedIndex = 0 
+                    }
+                } else  {
+                    //error occured
+                }
+            }
+        }
     }
 }
 
