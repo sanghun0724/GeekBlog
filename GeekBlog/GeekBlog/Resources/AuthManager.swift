@@ -12,7 +12,7 @@ public class AuthManager {
     
     // MARK: - Public
     
-    public func registerNewUser(username:String,email:String,passwords:String) {
+    public func registerNewUser(username:String,email:String,password:String,completion:@escaping (Bool) -> Void) {
         /*
          - Check if username is available
          - Check if email is available
@@ -24,6 +24,20 @@ public class AuthManager {
                  - Create account
                  - Insert account to database
                  */
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    guard error == nil,result != nil else {
+                        // Firebase auth could not create account
+                        completion(false)
+                        return
+                    }
+                    
+                    //insert into database
+                    
+                }
+            }
+            else {
+                // either username or email does not exist
+                completion(false)
             }
         }
     }
