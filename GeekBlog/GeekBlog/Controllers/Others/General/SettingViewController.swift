@@ -22,7 +22,7 @@ final class SettingViewController: UIViewController {
     }()
     
     private var data = [[SettingCellModel]]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         congfigureModel()
@@ -39,29 +39,39 @@ final class SettingViewController: UIViewController {
     
     private func congfigureModel() {
         let section = [
-        SettingCellModel(title: "Log Out") { [weak self] in
-            guard let self = self else { return }
-            self.didTapLogOut()
-       }]
+            SettingCellModel(title: "Log Out") { [weak self] in
+                guard let self = self else { return }
+                self.didTapLogOut()
+            }]
         data.append(section)
     }
-  
+    
     private func didTapLogOut() {
-        AuthManager.shared.logOut { success in
-            DispatchQueue.main.async {
-                if success {
-                    //present log in
-                    let loginVC = LoginViewController()
-                    loginVC.modalPresentationStyle = .fullScreen
-                    self.present(loginVC, animated: true) {
-                        self.navigationController?.popToRootViewController(animated: false)
-                        self.tabBarController?.selectedIndex = 0 
+        let actionSheet = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler:{ _ in
+            AuthManager.shared.logOut { success in
+                DispatchQueue.main.async {
+                    if success {
+                        //present log in
+                        let loginVC = LoginViewController()
+                        loginVC.modalPresentationStyle = .fullScreen
+                        self.present(loginVC, animated: true) {
+                            self.navigationController?.popToRootViewController(animated: false)
+                            self.tabBarController?.selectedIndex = 0
+                        }
+                    } else  {
+                        //error occured
+                        fatalError("Could not log out user")
                     }
-                } else  {
-                    //error occured
                 }
             }
-        }
+        }))
+        //for IPad
+        actionSheet.popoverPresentationController?.sourceView = tableView
+        actionSheet.popoverPresentationController?.sourceRect = tableView.bounds
+        
+        present(actionSheet, animated: true)
     }
 }
 
