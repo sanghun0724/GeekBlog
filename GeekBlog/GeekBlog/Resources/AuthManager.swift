@@ -15,8 +15,17 @@ public class AuthManager {
     public func registerNewUser(username:String,email:String,passwords:String) {
         /*
          - Check if username is available
-         
+         - Check if email is available
          */
+        
+        DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
+            if canCreate {
+                /*
+                 - Create account
+                 - Insert account to database
+                 */
+            }
+        }
     }
     
     public func loginUser(username:String?,email:String?,password:String,completion:@escaping ((Bool) -> Void)) {
