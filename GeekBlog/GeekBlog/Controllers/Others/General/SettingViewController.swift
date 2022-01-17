@@ -7,23 +7,75 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+struct SettingCellModel {
+    let title:String
+    let handler: (() -> Void)
+}
+
+/// View Controller to show user settings
+final class SettingViewController: UIViewController {
+    
+    private let tableView:UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
+    private var data = [[SettingCellModel]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        congfigureModel()
+        view.backgroundColor = .systemBackground
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
-    */
+    
+    private func congfigureModel() {
+        let section = [
+        SettingCellModel(title: "Log Out") { [weak self] in
+            guard let self = self else { return }
+            self.didTapLogOut()
+       }]
+        data.append(section)
+    }
+  
+    private func didTapLogOut() {
+        
+    }
+}
 
+
+extension SettingViewController:UITableViewDelegate,UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for:indexPath)
+        cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 테이블뷰 클릭하면 색깔 변하는거 다시 돌아오게 해주는 펑션
+        tableView.deselectRow(at: indexPath, animated: true)
+        data[indexPath.section][indexPath.row].handler()
+        //Handle cell selection here
+        
+    }
+    
+    
+    
 }
