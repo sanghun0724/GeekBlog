@@ -30,11 +30,13 @@ class ProfileViewController: UIViewController {
             return
         }
         view.addSubview(collectionView)
+        print("work")
     }
     
     override func viewDidLayoutSubviews() {
-        self.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
+      
     }
     
     private func configureNavigationBar() {
@@ -61,6 +63,5 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
         collectionView.deselectItem(at: indexPath, animated: true)
         
     }
-    
-    
+
 }
