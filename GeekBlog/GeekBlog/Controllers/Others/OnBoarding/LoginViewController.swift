@@ -4,7 +4,7 @@
 //
 //  Created by sangheon on 2022/01/16.
 //
-
+import SafariServices
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
                                   width: view.width,
                                   height: view.height / 3)
         usernameEmailField.frame = CGRect(x: 25,
-                                          y: headerView.bottom + 10,
+                                          y: headerView.bottom + 40,
                                   width: view.width - 50,
                                           height: 52.0)
         passwordField.frame = CGRect(x: 25,
@@ -165,13 +165,38 @@ class LoginViewController: UIViewController {
         view.addSubview(headerView)
     }
     
-    @objc private func didTabLoginButton() {}
+    @objc private func didTabLoginButton() {
+        passwordField.resignFirstResponder()
+        usernameEmailField.resignFirstResponder()
+        
+        guard let usernameEmail = usernameEmailField.text,  !usernameEmail.isEmpty,
+        let password = passwordField.text,!password.isEmpty,password.count >= 8 else {
+            return
+        }
+        
+        //login functionality
+    }
     
-    @objc private func didTabTermsButton() {}
+    @objc private func didTabTermsButton() {
+        guard let url = URL(string: "https://help.instagram.com/581066165581870") else  {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
     
-    @objc private func didTabPrivacyButton() {}
+    @objc private func didTabPrivacyButton() {
+        guard let url = URL(string: "https://help.instagram.com/519522125107875/?helpref=hc_fnav") else  {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
     
-    @objc private func didTabCreateAccountButton() {}
+    @objc private func didTabCreateAccountButton() {
+        let vc = RegistrationViewController()
+        present(vc, animated: true)
+    }
     
 }
 
