@@ -27,6 +27,6 @@ extension UIView {
         return frame.origin.x
     }
     public var right:CGFloat {
-        return frame.origin.y
+        return frame.origin.x + frame.size.width
     }
 }
