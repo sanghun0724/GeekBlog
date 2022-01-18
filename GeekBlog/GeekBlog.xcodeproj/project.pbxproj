@@ -33,6 +33,10 @@
 		B63261782794629E004E1E97 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63261772794629E004E1E97 /* AuthManager.swift */; };
 		B632617A279462DA004E1E97 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326179279462DA004E1E97 /* StorageManager.swift */; };
 		B632617C2795476D004E1E97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632617B2795476D004E1E97 /* Extensions.swift */; };
+		B6A15CDD2796D2F800B94A20 /* IGFeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */; };
+		B6A15CE02796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */; };
+		B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */; };
+		B6A15CE42796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CE32796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		B63261772794629E004E1E97 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B6326179279462DA004E1E97 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B632617B2795476D004E1E97 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostTableViewCell.swift; sourceTree = "<group>"; };
+		B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionTableViewCell.swift; sourceTree = "<group>"; };
+		B6A15CE32796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
 		D98C9A219518CFB011FC92BE /* Pods-GeekBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekBlog.debug.xcconfig"; path = "Target Support Files/Pods-GeekBlog/Pods-GeekBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		DED60E1D11A75AE3DE5EE654 /* Pods_GeekBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +147,7 @@
 		B632614F27944652004E1E97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6A15CDB2796D2CC00B94A20 /* Cells */,
 				B63261522794469E004E1E97 /* Storyboards */,
 				B632614327944464004E1E97 /* Assets.xcassets */,
 			);
@@ -218,6 +227,25 @@
 				B6326170279449FA004E1E97 /* PublishPostViewController.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		B6A15CDB2796D2CC00B94A20 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B6A15CDE2796D52100B94A20 /* HomeFeed */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B6A15CDE2796D52100B94A20 /* HomeFeed */ = {
+			isa = PBXGroup;
+			children = (
+				B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */,
+				B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */,
+				B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */,
+				B6A15CE32796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift */,
+			);
+			path = HomeFeed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,13 +370,17 @@
 				B632615827944822004E1E97 /* NotificationViewController.swift in Sources */,
 				B63261612794493C004E1E97 /* RegistrationViewController.swift in Sources */,
 				B632616327944968004E1E97 /* PostViewController.swift in Sources */,
+				B6A15CE02796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				B632616F279449EA004E1E97 /* PostEditorViewController.swift in Sources */,
 				B632617A279462DA004E1E97 /* StorageManager.swift in Sources */,
+				B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */,
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
 				B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */,
 				B632615F27944914004E1E97 /* LoginViewController.swift in Sources */,
+				B6A15CDD2796D2F800B94A20 /* IGFeedPostTableViewCell.swift in Sources */,
 				B632616D279449C0004E1E97 /* SearchResultViewController.swift in Sources */,
 				B632615A27944834004E1E97 /* ProfileViewController.swift in Sources */,
+				B6A15CE42796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				B632617C2795476D004E1E97 /* Extensions.swift in Sources */,
 				B632616B279449B2004E1E97 /* SearchViewController.swift in Sources */,
 				B632613B27944460004E1E97 /* AppDelegate.swift in Sources */,
