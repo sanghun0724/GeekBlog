@@ -40,7 +40,7 @@ final class SettingViewController: UIViewController {
     
     private func congfigureModel() {
         data.append([
-            SettingCellModel(title: "Edit Progile") { [weak self] in
+            SettingCellModel(title: "Edit Profile") { [weak self] in
                 self?.didTapEditProfile()
             },
             SettingCellModel(title: "Invite Friends") { [weak self] in
@@ -101,7 +101,7 @@ final class SettingViewController: UIViewController {
         let vc = EditViewController()
         vc.title = "Edit Profile"
         let navVC = UINavigationController(rootViewController: vc)
-        present(vc,animated:  true)
+        present(navVC,animated:  true)
     }
     
     private func didTapLogOut() {

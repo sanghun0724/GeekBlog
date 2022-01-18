@@ -7,20 +7,77 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+struct EditProfileFormModel {
+    
+}
 
+final class EditViewController: UIViewController,UITableViewDataSource {
+    
+    
+    
+    private let tableView:UITableView = {
+        let tableview = UITableView()
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableview
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableHeaderView = createTableHeaderView()
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSave))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapCancel))
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    //MARK: - TableView
+    private func createTableHeaderView() -> UIView {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.height/4).integral)
+        let size = header.height/1.5
+        let profilePhotoButton = UIButton(frame: CGRect(x: (view.width-size)/2, y: (header.height-size)/2, width: size, height: size))
+        header.addSubview(profilePhotoButton)
+        profilePhotoButton.layer.masksToBounds = true
+        profilePhotoButton.layer.cornerRadius = size/2.0
+        profilePhotoButton.tintColor = .label
+        profilePhotoButton.addTarget(self, action: #selector(didTapProfilePhotoButton), for: .touchUpInside)
+        profilePhotoButton.setBackgroundImage(UIImage(systemName: "person.fill"), for: .normal)
+        profilePhotoButton.layer.borderWidth = 1
+        profilePhotoButton.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        return header
+    }
+
+    @objc private func didTapProfilePhotoButton() {
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
+    
+    //MARK: - Action
+    
     @objc private func didTapSave() {
+        //Save Into a database
         
     }
     
     @objc private func didTapCancel() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func didTapChangeProfilePicture() {
