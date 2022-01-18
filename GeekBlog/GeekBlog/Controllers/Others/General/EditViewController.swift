@@ -8,12 +8,12 @@
 import UIKit
 
 struct EditProfileFormModel {
-    
+    let label:String
+    let placeholder:String
+    var value:String?
 }
 
 final class EditViewController: UIViewController,UITableViewDataSource {
-    
-    
     
     private let tableView:UITableView = {
         let tableview = UITableView()
@@ -21,14 +21,36 @@ final class EditViewController: UIViewController,UITableViewDataSource {
         return tableview
     }()
     
+    private var models = [[EditProfileFormModel]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureModels()
         tableView.tableHeaderView = createTableHeaderView()
         tableView.dataSource = self
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSave))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapCancel))
+    }
+    
+    private func configureModels() {
+        // nae , username , website , bio
+        let section1Labels = ["Name","Username","Bio"]
+        var section1 = [EditProfileFormModel]()
+        for label in section1Labels {
+            let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
+            section1.append(model)
+        }
+        models.append(section1)
+        //email , phone , gender
+        let section2Labels = ["Email","Phone","Gender"]
+        var section2 = [EditProfileFormModel]()
+        for label in section2Labels {
+            let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
+            section2.append(model)
+        }
+        models.append(section2)
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,11 +79,11 @@ final class EditViewController: UIViewController,UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return models[section].count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)
