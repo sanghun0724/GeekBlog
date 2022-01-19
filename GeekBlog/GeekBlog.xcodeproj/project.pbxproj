@@ -35,6 +35,8 @@
 		B632617C2795476D004E1E97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632617B2795476D004E1E97 /* Extensions.swift */; };
 		B67A69C42797DD7200E40ECD /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A69C32797DD7200E40ECD /* FormTableViewCell.swift */; };
 		B67A69C7279825C400E40ECD /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A69C6279825C400E40ECD /* PhotoCollectionViewCell.swift */; };
+		B67A69C92798264400E40ECD /* ProfileInfoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A69C82798264400E40ECD /* ProfileInfoHeaderCollectionReusableView.swift */; };
+		B67A69CB2798267700E40ECD /* ProfileTabsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A69CA2798267700E40ECD /* ProfileTabsCollectionReusableView.swift */; };
 		B6A15CDD2796D2F800B94A20 /* IGFeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */; };
 		B6A15CE02796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */; };
 		B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */; };
@@ -72,6 +74,8 @@
 		B632617B2795476D004E1E97 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B67A69C32797DD7200E40ECD /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		B67A69C6279825C400E40ECD /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B67A69C82798264400E40ECD /* ProfileInfoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		B67A69CA2798267700E40ECD /* ProfileTabsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabsCollectionReusableView.swift; sourceTree = "<group>"; };
 		B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostTableViewCell.swift; sourceTree = "<group>"; };
 		B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionTableViewCell.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 		B67A69C52798251400E40ECD /* CollectionView Headers */ = {
 			isa = PBXGroup;
 			children = (
+				B67A69C82798264400E40ECD /* ProfileInfoHeaderCollectionReusableView.swift */,
+				B67A69CA2798267700E40ECD /* ProfileTabsCollectionReusableView.swift */,
 			);
 			path = "CollectionView Headers";
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				B632617A279462DA004E1E97 /* StorageManager.swift in Sources */,
 				B67A69C42797DD7200E40ECD /* FormTableViewCell.swift in Sources */,
 				B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */,
+				B67A69CB2798267700E40ECD /* ProfileTabsCollectionReusableView.swift in Sources */,
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
 				B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */,
 				B632615F27944914004E1E97 /* LoginViewController.swift in Sources */,
@@ -398,6 +405,7 @@
 				B632615A27944834004E1E97 /* ProfileViewController.swift in Sources */,
 				B6A15CE42796D5A200B94A20 /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				B632617C2795476D004E1E97 /* Extensions.swift in Sources */,
+				B67A69C92798264400E40ECD /* ProfileInfoHeaderCollectionReusableView.swift in Sources */,
 				B632616B279449B2004E1E97 /* SearchViewController.swift in Sources */,
 				B632613B27944460004E1E97 /* AppDelegate.swift in Sources */,
 				B63261782794629E004E1E97 /* AuthManager.swift in Sources */,
