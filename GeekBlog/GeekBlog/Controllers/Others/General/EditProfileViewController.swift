@@ -17,7 +17,7 @@ final class EditProfileViewController: UIViewController,UITableViewDataSource {
     
     private let tableView:UITableView = {
         let tableview = UITableView()
-        tableview.register(FormTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(FormTableViewCell.self, forCellReuseIdentifier: FormTableViewCell.identifier)
         return tableview
     }()
     
@@ -30,7 +30,7 @@ final class EditProfileViewController: UIViewController,UITableViewDataSource {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSave))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapCancel))
     }
     
     private func configureModels() {
@@ -86,12 +86,13 @@ final class EditProfileViewController: UIViewController,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)
-        cell.textLabel?.text = model.label
+        let cell = tableView.dequeueReusableCell(withIdentifier:FormTableViewCell.identifier, for: indexPath) as! FormTableViewCell
+        cell.configure(with: model)
+        cell.delegate = self
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard section == 1  else {
             return nil
         }
@@ -103,6 +104,7 @@ final class EditProfileViewController: UIViewController,UITableViewDataSource {
     @objc private func didTapSave() {
         //Save Into a database
         
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func didTapCancel() {
@@ -127,4 +129,13 @@ final class EditProfileViewController: UIViewController,UITableViewDataSource {
         
         present(actionSheet,animated: true)
     }
+}
+
+extension EditProfileViewController:FormTableViewCellDelegate {
+    func formTablewViewCell(_ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel) {
+        //update the model
+        print(updatedModel.value ?? nil)
+    }
+    
+    
 }
