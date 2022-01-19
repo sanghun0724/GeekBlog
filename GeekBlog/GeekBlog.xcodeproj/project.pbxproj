@@ -21,7 +21,7 @@
 		B632615F27944914004E1E97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632615E27944914004E1E97 /* LoginViewController.swift */; };
 		B63261612794493C004E1E97 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63261602794493C004E1E97 /* RegistrationViewController.swift */; };
 		B632616327944968004E1E97 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616227944968004E1E97 /* PostViewController.swift */; };
-		B632616527944980004E1E97 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616427944980004E1E97 /* EditViewController.swift */; };
+		B632616527944980004E1E97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616427944980004E1E97 /* EditProfileViewController.swift */; };
 		B63261672794498E004E1E97 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63261662794498E004E1E97 /* SettingViewController.swift */; };
 		B6326169279449A0004E1E97 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326168279449A0004E1E97 /* ListViewController.swift */; };
 		B632616B279449B2004E1E97 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632616A279449B2004E1E97 /* SearchViewController.swift */; };
@@ -33,6 +33,7 @@
 		B63261782794629E004E1E97 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63261772794629E004E1E97 /* AuthManager.swift */; };
 		B632617A279462DA004E1E97 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6326179279462DA004E1E97 /* StorageManager.swift */; };
 		B632617C2795476D004E1E97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632617B2795476D004E1E97 /* Extensions.swift */; };
+		B67A69C42797DD7200E40ECD /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A69C32797DD7200E40ECD /* FormTableViewCell.swift */; };
 		B6A15CDD2796D2F800B94A20 /* IGFeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */; };
 		B6A15CE02796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */; };
 		B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */; };
@@ -56,7 +57,7 @@
 		B632615E27944914004E1E97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B63261602794493C004E1E97 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		B632616227944968004E1E97 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		B632616427944980004E1E97 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		B632616427944980004E1E97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B63261662794498E004E1E97 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B6326168279449A0004E1E97 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B632616A279449B2004E1E97 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		B63261772794629E004E1E97 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B6326179279462DA004E1E97 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B632617B2795476D004E1E97 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B67A69C32797DD7200E40ECD /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		B6A15CDC2796D2F800B94A20 /* IGFeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostTableViewCell.swift; sourceTree = "<group>"; };
 		B6A15CDF2796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B6A15CE12796D57100B94A20 /* IGFeedPostActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionTableViewCell.swift; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B632616227944968004E1E97 /* PostViewController.swift */,
-				B632616427944980004E1E97 /* EditViewController.swift */,
+				B632616427944980004E1E97 /* EditProfileViewController.swift */,
 				B63261662794498E004E1E97 /* SettingViewController.swift */,
 				B6326168279449A0004E1E97 /* ListViewController.swift */,
 				B632616A279449B2004E1E97 /* SearchViewController.swift */,
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A15CDE2796D52100B94A20 /* HomeFeed */,
+				B67A69C32797DD7200E40ECD /* FormTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				B6A15CE02796D54800B94A20 /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				B632616F279449EA004E1E97 /* PostEditorViewController.swift in Sources */,
 				B632617A279462DA004E1E97 /* StorageManager.swift in Sources */,
+				B67A69C42797DD7200E40ECD /* FormTableViewCell.swift in Sources */,
 				B6A15CE22796D57100B94A20 /* IGFeedPostActionTableViewCell.swift in Sources */,
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
 				B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */,
@@ -385,7 +389,7 @@
 				B632616B279449B2004E1E97 /* SearchViewController.swift in Sources */,
 				B632613B27944460004E1E97 /* AppDelegate.swift in Sources */,
 				B63261782794629E004E1E97 /* AuthManager.swift in Sources */,
-				B632616527944980004E1E97 /* EditViewController.swift in Sources */,
+				B632616527944980004E1E97 /* EditProfileViewController.swift in Sources */,
 				B632613D27944460004E1E97 /* SceneDelegate.swift in Sources */,
 				B6326169279449A0004E1E97 /* ListViewController.swift in Sources */,
 				B63261672794498E004E1E97 /* SettingViewController.swift in Sources */,

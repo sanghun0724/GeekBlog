@@ -13,16 +13,15 @@ struct EditProfileFormModel {
     var value:String?
 }
 
-final class EditViewController: UIViewController,UITableViewDataSource {
+final class EditProfileViewController: UIViewController,UITableViewDataSource {
     
     private let tableView:UITableView = {
         let tableview = UITableView()
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(FormTableViewCell.self, forCellReuseIdentifier: "cell")
         return tableview
     }()
     
     private var models = [[EditProfileFormModel]]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureModels()
@@ -86,9 +85,17 @@ final class EditViewController: UIViewController,UITableViewDataSource {
         return models[section].count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        cell.textLabel?.text = model.label
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        guard section == 1  else {
+            return nil
+        }
+        return "Private Information"
     }
     
     //MARK: - Action

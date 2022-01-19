@@ -98,7 +98,7 @@ final class SettingViewController: UIViewController {
     }
     
     private func didTapEditProfile() {
-        let vc = EditViewController()
+        let vc = EditProfileViewController()
         vc.title = "Edit Profile"
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC,animated:  true)
