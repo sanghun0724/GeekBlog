@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     
     private var collectionView:UICollectionView?
     
+    private var userPosts = [UserPost]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -40,7 +42,6 @@ class ProfileViewController: UIViewController {
             return
         }
         view.addSubview(collectionView)
-        print("work")
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +74,9 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = userPosts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
+        //cell.configure(debug: model)
         cell.configure(debug: "test")
         return cell
         
@@ -82,6 +85,12 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
+        //get the model and open Post Controller
+        //let model = userPosts[indexPath.row]
+        let vc = PostViewController(model: nil)
+        vc.title = "Post"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated:true)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -109,4 +118,4 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
         //Size info section tabs
         return CGSize(width: collectionView.width, height: 65)
     }
-   }
+ }
