@@ -8,13 +8,25 @@
 import UIKit
 
 protocol UserFollowTableViewCellDelegate:AnyObject {
-    func didTapFollowUnfollowButton(model:String)
+    func didTapFollowUnfollowButton(model:UserRelationShip)
+}
+
+enum FollowState {
+    case following, not_following
+}
+
+struct UserRelationShip {
+    let username:String
+    let name:String
+    let type: FollowState
 }
 
 class UserFollowTableViewCell: UITableViewCell {
     static let identifier = "UserFollowTableViewCell"
     
     weak var delegate:UserFollowTableViewCellDelegate?
+    
+    private var model:UserRelationShip?
     
     private let profileImageView:UIImageView = {
         let imageView = UIImageView()
@@ -54,10 +66,36 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(usernameLabel)
         contentView.addSubview(profileImageView)
         contentView.addSubview(followButton)
+        
+        followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
     }
     
-    public func configure(with model:String) {
-        
+    @objc private func didTapFollowButton() {
+        guard let model = model else  {
+            return
+        }
+        delegate?.didTapFollowUnfollowButton(model: model)
+    }
+    
+    public func configure(with model:UserRelationShip) {
+        nameLabel.text = model.name
+        usernameLabel.text = model.username
+        switch model.type {
+        case .following:
+            // show unfollow button
+            followButton.setTitle("Unfollow", for: .normal)
+            followButton.setTitleColor(.label, for: .normal)
+            followButton.backgroundColor = .systemBackground
+            followButton.layer.borderWidth = 1
+            followButton.layer.borderColor = UIColor.label.cgColor
+        case .not_following:
+            // show follow button
+            followButton.setTitle("Follow", for: .normal)
+            followButton.setTitleColor(.white, for: .normal)
+            followButton.backgroundColor = .link
+            followButton.layer.borderWidth = 0
+            
+        }
     }
     
     override func prepareForReuse() {
