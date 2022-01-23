@@ -55,6 +55,7 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier,for: indexPath) as! UserFollowTableViewCell
         cell.configure(with: data[indexPath.row])
+        cell.delegate = self 
         return cell
     }
     
@@ -67,4 +68,19 @@ extension ListViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
+}
+
+extension ListViewController:UserFollowTableViewCellDelegate {
+    func didTapFollowUnfollowButton(model: UserRelationShip) {
+        switch model.type {
+        case .following:
+            // perform firbase update to unfollow
+            break
+        case .not_following:
+            //perfrom firebase update to unfollow
+            break
+        }
+    }
+    
+    
 }
