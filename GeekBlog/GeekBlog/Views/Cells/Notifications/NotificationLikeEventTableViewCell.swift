@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol NotificationLikeEventTableViewCellDelegate:AnyObject {
     func didTapRelatedPostButton(model:String)
@@ -15,6 +16,8 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     static let identifier = "NotificationFollowEventTableViewCell"
     
     weak var delegate:NotificationFollowEventTableViewCellDelegate?
+    
+    private var model:UserNotification?
     
     private let profileImageView:UIImageView = {
         let imageView = UIImageView()
@@ -61,7 +64,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+       
     }
 
 }
