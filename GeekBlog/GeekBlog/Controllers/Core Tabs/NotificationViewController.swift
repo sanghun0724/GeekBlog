@@ -103,16 +103,35 @@ final class NotificationViewController: UIViewController,UITableViewDelegate,UIT
             //likeCell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier,for:indexPath) as! NotificationLikeEventTableViewCell
             cell.configure(with:model)
+            cell.delegate = self
             return cell
         case .follow:
             //follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier,for:indexPath) as! NotificationFollowEventTableViewCell
-            //cell.configure(with:model)
+            cell.configure(with:model)
+            cell.delegate = self
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 52
     }
+}
+
+
+extension NotificationViewController:NotificationLikeEventTableViewCellDelegate {
+    func didTapRelatedPostButton(model: UserNotification) {
+        print("Tapped Post")
+        //Open the posts
+    }
+}
+
+extension NotificationViewController:NotificationFollowEventTableViewCellDelegate {
+    func didTapFollowUnFollowButton(model: UserNotification) {
+        print("Tapped Button")
+        // perform database Update
+    }
+    
+    
 }

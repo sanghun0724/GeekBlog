@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NotificationFollowEventTableViewCellDelegate:AnyObject {
-    func didTapFollowUnFollowButton(model:String)
+    func didTapFollowUnFollowButton(model:UserNotification)
 }
 
 class NotificationFollowEventTableViewCell: UITableViewCell {
@@ -16,9 +16,12 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     weak var delegate:NotificationFollowEventTableViewCellDelegate?
     
+    private var model:UserNotification?
+    
     private let profileImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .tertiarySystemBackground
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -27,6 +30,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
+        label.text = "@kanywest started following you"
         return label
     }()
     
@@ -41,15 +45,36 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(followButton)
+        followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
         
+    }
+    
+    @objc private func didTapFollowButton() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapFollowUnFollowButton(model: model)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with model:String) {
+    public func configure(with model:UserNotification) {
+        self.model = model
         
+        
+        switch model.type {
+        case .like(_):
+            break
+            
+        case .follow:
+            //configure button
+            break
+            
+        }
+        label.text = model.text
+        profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
     }
     
     override func prepareForReuse() {

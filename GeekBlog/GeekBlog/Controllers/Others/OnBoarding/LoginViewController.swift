@@ -139,7 +139,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        guard let backgroundView = headerView.subviews.first as? UIView else {
+        guard let backgroundView = headerView.subviews.first else {
             return
         }
         backgroundView.frame = headerView.bounds

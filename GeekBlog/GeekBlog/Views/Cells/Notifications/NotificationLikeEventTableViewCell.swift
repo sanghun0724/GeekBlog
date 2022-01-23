@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 
 protocol NotificationLikeEventTableViewCellDelegate:AnyObject {
-    func didTapRelatedPostButton(model:String)
+    func didTapRelatedPostButton(model:UserNotification)
 }
 
 class NotificationLikeEventTableViewCell: UITableViewCell {
     static let identifier = "NotificationLikeEventTableViewCell"
     
-    weak var delegate:NotificationFollowEventTableViewCellDelegate?
+    weak var delegate:NotificationLikeEventTableViewCellDelegate?
     
     private var model:UserNotification?
     
@@ -51,6 +51,14 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         contentView.addSubview(postButton)
         configureUI()
         layoutIfNeeded()
+        postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapPostButton() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapRelatedPostButton(model: model)
     }
     
     required init?(coder: NSCoder) {
@@ -60,11 +68,13 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     public func configure(with model:UserNotification) {
         self.model = model
         
-        guard
         
         switch model.type {
         case .like(let post):
             let thumbnail = post.thumbnailImage
+            guard !thumbnail.absoluteString.contains("google.com") else {
+                return
+            }
             postButton.sd_setBackgroundImage(with: thumbnail, for: .normal, completed: nil)
             
         case .follow:
@@ -99,16 +109,16 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         
         let size = contentView.height-4
         postButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(contentView.width-size)
+            make.right.equalToSuperview().offset(-2)
             make.top.equalToSuperview().offset(2)
             make.width.equalTo(size)
             make.height.equalTo(size)
         }
         
         label.snp.makeConstraints { make in
-            make.left.equalTo(profileImageView.snp.right)
+            make.left.equalTo(profileImageView.snp.right).offset(5)
             make.top.equalToSuperview()
-            make.right.equalToSuperview().offset(-20)
+            make.right.equalTo(postButton.snp.left).offset(-5)
             make.height.equalToSuperview()
         }
     }
