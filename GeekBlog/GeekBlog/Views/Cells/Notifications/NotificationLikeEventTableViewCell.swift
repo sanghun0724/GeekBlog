@@ -20,7 +20,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     
     private var model:UserNotification?
     
-    private let profileImageView:UIImageView = {
+    var profileImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .tertiarySystemBackground
         imageView.layer.masksToBounds = true
@@ -49,8 +49,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(postButton)
-        configureUI()
-        layoutIfNeeded()
+        //layoutIfNeeded()
         postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
     }
     
@@ -93,7 +92,10 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        profileImageView.layer.cornerRadius = profileImageView.height / 2.0
+        configureUI()
+        layoutIfNeeded()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
+        profileImageView.clipsToBounds = true
     }
     
     
@@ -103,7 +105,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         profileImageView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(3)
             make.top.equalToSuperview().offset(3)
-            make.height.equalToSuperview().offset(-6)
+            make.height.equalTo(contentView.snp.height).offset(-6)
             make.width.equalTo(profileImageView.snp.height)
         }
         

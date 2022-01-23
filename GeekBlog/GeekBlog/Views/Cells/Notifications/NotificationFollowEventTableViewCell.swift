@@ -46,7 +46,6 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(followButton)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
-        
     }
     
     @objc private func didTapFollowButton() {
@@ -88,7 +87,35 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        configureUI()
+        layoutIfNeeded()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
+        profileImageView.clipsToBounds = true
+    }
+    
+    private func configureUI() {
+        //photo,text, post Button
+        profileImageView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(3)
+            make.top.equalToSuperview().offset(3)
+            make.height.equalToSuperview().offset(-6)
+            make.width.equalTo(profileImageView.snp.height)
+        }
         
+        let size = contentView.height-4
+        followButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-2)
+            make.top.equalToSuperview().offset(2)
+            make.width.equalTo(size)
+            make.height.equalTo(size)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.left.equalTo(profileImageView.snp.right).offset(5)
+            make.top.equalToSuperview()
+            make.right.equalTo(followButton.snp.left).offset(-5)
+            make.height.equalToSuperview()
+        }
     }
 
 }

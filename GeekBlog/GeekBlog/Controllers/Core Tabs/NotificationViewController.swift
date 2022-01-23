@@ -108,7 +108,7 @@ final class NotificationViewController: UIViewController,UITableViewDelegate,UIT
         case .follow:
             //follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier,for:indexPath) as! NotificationFollowEventTableViewCell
-            cell.configure(with:model)
+            //cell.configure(with:model)
             cell.delegate = self
             return cell
         }
