@@ -150,7 +150,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
             switch model.header.renderType {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier,for:indexPath) as! IGFeedPostHeaderTableViewCell
-                
+                cell.configure(with: user)
                 return cell
             case .comments, .actions, .primaryContent: return UITableViewCell()
             }
@@ -160,7 +160,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
             switch model.post.renderType {
             case .primaryContent(let post):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier,for:indexPath) as! IGFeedPostTableViewCell
-                
+                cell.configure(with: post)
                 return cell
             case .header, .actions, .comments: return UITableViewCell()
             }
