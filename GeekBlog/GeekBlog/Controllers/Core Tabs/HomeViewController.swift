@@ -147,8 +147,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         
         if subSection == 0 {
             // header
-            let headerModel = model.header
-            switch headerModel.renderType {
+            switch model.header.renderType {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier,for:indexPath) as! IGFeedPostHeaderTableViewCell
                 
@@ -158,8 +157,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         }
         else if subSection == 1 {
             // post
-            let postModel = model.post
-            switch postModel.renderType {
+            switch model.post.renderType {
             case .primaryContent(let post):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier,for:indexPath) as! IGFeedPostTableViewCell
                 
@@ -169,8 +167,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         }
         else if subSection == 2 {
             // actions
-            let actionModel = model.actions
-            switch actionModel.renderType {
+            switch model.actions.renderType {
             case .actions(let provider):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionTableViewCell.identifier,for:indexPath) as! IGFeedPostActionTableViewCell
                 
@@ -180,8 +177,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         }
         else if subSection == 3 {
             // comments
-            let commentsModel = model.comments
-            switch commentsModel.renderType {
+            switch model.comments.renderType {
             case .comments(let comments):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostGeneralTableViewCell.identifier,for:indexPath) as! IGFeedPostGeneralTableViewCell
                 
@@ -199,17 +195,30 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let subSection = indexPath.section % 4
         if subSection == 0 {
+            //Header
             return 70
         }
         else if subSection == 1 {
+            //Post
             return tableView.width
         }
         else if subSection == 2 {
+            //Actions(like/comments)
             return 60
         }
         else if subSection == 3 {
+            //Comment row
             return 50
         }
         return 0
+    }
+    //포스트 당 간격 주기
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let subSection = section % 4
+        return subSection == 3 ? 70 : 0
     }
 }
