@@ -9,7 +9,7 @@ import UIKit
 
 enum UserNotificationType {
     case like(post: UserPost)
-    case follow
+    case follow(state:FollowState)
 }
 
 struct UserNotification {
@@ -71,7 +71,7 @@ final class NotificationViewController: UIViewController,UITableViewDelegate,UIT
                                 comments: [],
                                 createdDate: Date(),
                                 taggedUsers: [])
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
                                          text: "Hello World",
                                          user: User(username: "joe",
                                                     bio: "",

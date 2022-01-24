@@ -30,12 +30,14 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
-        label.text = "@kanywest started following you"
+        label.text = "@kanywest followed you"
         return label
     }()
     
     private let followButton:UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
         return button
     }()
     
@@ -46,6 +48,8 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(followButton)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
+        configureforFollow()
+        selectionStyle = .none
     }
     
     @objc private func didTapFollowButton() {
@@ -67,13 +71,32 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         case .like(_):
             break
             
-        case .follow:
+        case .follow(let state):
             //configure button
+            switch state {
+            case .following:
+                //show unfollow button
+                configureforFollow()
+            case .not_following:
+                //show follow button
+                followButton.setTitle("Follow", for: .normal)
+                followButton.setTitleColor(.white, for: .normal)
+                followButton.layer.borderWidth = 0
+                followButton.backgroundColor = .link
+               
+            }
             break
             
         }
         label.text = model.text
         profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
+    }
+    
+    private func configureforFollow() {
+        followButton.setTitle("Unfollow", for: .normal)
+        followButton.setTitleColor(.label, for: .normal)
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     override func prepareForReuse() {
@@ -91,6 +114,8 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         layoutIfNeeded()
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
         profileImageView.clipsToBounds = true
+      
+        
     }
     
     private func configureUI() {
@@ -102,13 +127,13 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
             make.width.equalTo(profileImageView.snp.height)
         }
         
-        let size = contentView.height-4
         followButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-2)
-            make.top.equalToSuperview().offset(2)
-            make.width.equalTo(size)
-            make.height.equalTo(size)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(42)
         }
+        
         
         label.snp.makeConstraints { make in
             make.left.equalTo(profileImageView.snp.right).offset(5)
