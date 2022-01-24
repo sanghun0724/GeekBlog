@@ -17,7 +17,7 @@ struct HomeFeedRenderViewModel {
 
 class HomeViewController: UIViewController {
     
-    private var feedrenderModels = [HomeFeedRenderViewModel]()
+    private var feedRenderModels = [HomeFeedRenderViewModel]()
     
     private let tableView:UITableView = {
         let tableView = UITableView()
@@ -34,6 +34,40 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        createMockModels()
+    }
+    
+    private func createMockModels() {
+        let user = User(username: "joe",
+                        bio: "",
+                        name: (first: "", last: ""),
+                        profilePhoto: URL(string: "https://www.google.com")!,
+                        birthDate:Date(),
+                        gender: .male,
+                        count: UserCount(followers: 1, following: 1, posts: 1),
+                        joinDate: Date())
+        let post = UserPost(identifier: "",
+                            postType: .photo,
+                            thumbnailImage: URL(string:"https://www.google.com" )!,
+                            postURL: URL(string:"https://www.google.com" )!,
+                            caption: nil,
+                            likeCount: [],
+                            comments: [],
+                            createdDate: Date(),
+                            taggedUsers: [],
+                            owner: user)
+        var comments = [PostComment]()
+        for x in 0..<2 {
+            comments.append(PostComment(identifier: "\(x)", username: "@Jenny", text: "This is the best post I've seen", createdDate: Date(), likes: []))
+        }
+        
+        for x in 0..<5 {
+            let viewModel = HomeFeedRenderViewModel(header: PostRenderViewModel(renderType: .header(provider: user)),
+                                                    post: PostRenderViewModel(renderType: .primaryContent(provider: post)),
+                                                    actions: PostRenderViewModel(renderType: .actions(provider: "")),
+                                                    comments: PostRenderViewModel(renderType: .comments(comments: comments)))
+            feedRenderModels.append(viewModel)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,17 +94,17 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return feedrenderModels.count * 4
+        return feedRenderModels.count * 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let x = section
         let model:HomeFeedRenderViewModel
         if x == 0 {
-            model = feedrenderModels[0]
+            model = feedRenderModels[0]
         } else {
-            let position = x % 4 == 0 ? x/4 : (x - (x%4) / 4)
-            model = feedrenderModels[position]
+            let position = x % 4 == 0 ? x/4 : ((x - (x%4)) / 4)
+            model = feedRenderModels[position]
         }
         
         let subSection = x % 4
@@ -103,10 +137,10 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         let x = indexPath.section
         let model:HomeFeedRenderViewModel
         if x == 0 {
-            model = feedrenderModels[0]
+            model = feedRenderModels[0]
         } else {
-            let position = x % 4 == 0 ? x/4 : (x - (x%4) / 4)
-            model = feedrenderModels[position]
+            let position = x % 4 == 0 ? x/4 : ((x - (x%4)) / 4)
+            model = feedRenderModels[position]
         }
         
         let subSection = x % 4
