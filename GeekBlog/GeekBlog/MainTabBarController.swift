@@ -17,7 +17,7 @@ class MainTabBarController:UITabBarController {
     }
     
     private func setupViewController() {
-        
+        print("hello")
     }
     
     
