@@ -8,9 +8,15 @@ import SnapKit
 import SDWebImage
 import UIKit
 
+protocol IGFeedPostHeaderTableViewCellDelegate:AnyObject {
+    func didTapMoreButton()
+}
+
 class IGFeedPostHeaderTableViewCell: UITableViewCell {
     
     static let identifier = "IGFeedPostHeaderTableViewCell"
+    
+    weak var delegate:IGFeedPostHeaderTableViewCellDelegate?
     
     private let profilePhotoImageView:UIImageView = {
         let imageView = UIImageView()
@@ -44,7 +50,7 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapButton() {
-        
+        delegate?.didTapMoreButton()
     }
     
     required init?(coder: NSCoder) {

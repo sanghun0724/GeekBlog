@@ -151,6 +151,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier,for:indexPath) as! IGFeedPostHeaderTableViewCell
                 cell.configure(with: user)
+                cell.delegate = self
                 return cell
             case .comments, .actions, .primaryContent: return UITableViewCell()
             }
@@ -170,7 +171,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
             switch model.actions.renderType {
             case .actions(let provider):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionTableViewCell.identifier,for:indexPath) as! IGFeedPostActionTableViewCell
-                
+                cell.delegate = self
                 return cell
             case .header, .comments, .primaryContent: return UITableViewCell()
             }
@@ -221,4 +222,37 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         let subSection = section % 4
         return subSection == 3 ? 70 : 0
     }
+}
+
+extension HomeViewController:IGFeedPostHeaderTableViewCellDelegate {
+    func didTapMoreButton() {
+        let actionSheet = UIAlertController(title: "Post Options", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Report Post", style: .destructive,handler: { [weak self] _ in
+            self?.reportPost()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "cancel", style: .cancel))
+        present(actionSheet,animated: true)
+    }
+    
+    func reportPost() {
+        
+    }
+    
+}
+
+
+extension HomeViewController:IGFeedPostActionTableViewCellDelegate {
+    func didTapLikeButton() {
+        print("like")
+    }
+    
+    func didTapCommentButton() {
+        print("comment")
+    }
+    
+    func didTapSendButton() {
+        print("send")
+    }
+    
+    
 }
