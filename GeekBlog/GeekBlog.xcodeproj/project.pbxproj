@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B44524E1F2275950B7D9293 /* Pods_GeekBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED60E1D11A75AE3DE5EE654 /* Pods_GeekBlog.framework */; };
+		B603473027A00C9500CFBDF2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603472F27A00C9500CFBDF2 /* MainTabBarController.swift */; };
 		B632613B27944460004E1E97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613A27944460004E1E97 /* AppDelegate.swift */; };
 		B632613D27944460004E1E97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613C27944460004E1E97 /* SceneDelegate.swift */; };
 		B632613F27944460004E1E97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632613E27944460004E1E97 /* HomeViewController.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		717CBCADCA3653BD6DD739B6 /* Pods-GeekBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekBlog.release.xcconfig"; path = "Target Support Files/Pods-GeekBlog/Pods-GeekBlog.release.xcconfig"; sourceTree = "<group>"; };
+		B603472F27A00C9500CFBDF2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B632613727944460004E1E97 /* GeekBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeekBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B632613A27944460004E1E97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B632613C27944460004E1E97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		B632613927944460004E1E97 /* GeekBlog */ = {
 			isa = PBXGroup;
 			children = (
+				B603472F27A00C9500CFBDF2 /* MainTabBarController.swift */,
 				B632615127944663004E1E97 /* Resources */,
 				B63261502794465C004E1E97 /* Models */,
 				B632614F27944652004E1E97 /* Views */,
@@ -424,6 +427,7 @@
 				B632613F27944460004E1E97 /* HomeViewController.swift in Sources */,
 				B6326176279461D2004E1E97 /* DatabaseManager.swift in Sources */,
 				B632615F27944914004E1E97 /* LoginViewController.swift in Sources */,
+				B603473027A00C9500CFBDF2 /* MainTabBarController.swift in Sources */,
 				B67A69CD27984A4900E40ECD /* Model.swift in Sources */,
 				B67A69C7279825C400E40ECD /* PhotoCollectionViewCell.swift in Sources */,
 				B6B95BF4279CF58F004C48F6 /* NoNotificationView.swift in Sources */,
