@@ -26,6 +26,8 @@
 		B6AD168527A12C8500D62F42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6AD168427A12C8500D62F42 /* GoogleService-Info.plist */; };
 		B6AD168727A1352700D62F42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168627A1352700D62F42 /* User.swift */; };
 		B6AD168927A1353500D62F42 /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168827A1353500D62F42 /* BlogPost.swift */; };
+		B6AD168C27A13A8400D62F42 /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */; };
+		B6AD168E27A1410A00D62F42 /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B6AD168427A12C8500D62F42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6AD168627A1352700D62F42 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6AD168827A1353500D62F42 /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
+		B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
+		B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
 		CA115D73B5610500F6CF912D /* Pods-Thoughts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.release.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.release.xcconfig"; sourceTree = "<group>"; };
 		D3AAC71D8005E63EE3817FE2 /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				B603474A27A04ADE00CFBDF2 /* LaunchScreen.storyboard */,
+				B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 		B6AD166A27A1162500D62F42 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD168A27A13A7400D62F42 /* Other */,
 				B6AD168327A11A1B00D62F42 /* Posts */,
 				B6AD168227A119FE00D62F42 /* Auth */,
 				B6AD168127A119EE00D62F42 /* CoreTabs */,
@@ -181,6 +187,14 @@
 				B6AD167727A1173D00D62F42 /* CreateNewPostViewController.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		B6AD168A27A13A7400D62F42 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		D3A424E94E4257115E2F3CC2 /* Frameworks */ = {
@@ -311,6 +325,8 @@
 				B6AD167E27A1179C00D62F42 /* AuthManager.swift in Sources */,
 				B6AD167427A116FF00D62F42 /* SignUpViewController.swift in Sources */,
 				B603474027A04ADA00CFBDF2 /* AppDelegate.swift in Sources */,
+				B6AD168E27A1410A00D62F42 /* PayWallHeaderView.swift in Sources */,
+				B6AD168C27A13A8400D62F42 /* PayWallViewController.swift in Sources */,
 				B6AD167227A116F100D62F42 /* SignInViewController.swift in Sources */,
 				B6AD166E27A116C300D62F42 /* ProfileViewController.swift in Sources */,
 				B6AD168727A1352700D62F42 /* User.swift in Sources */,
