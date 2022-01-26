@@ -13,6 +13,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         title = "Sign In"
         view.backgroundColor = .systemBackground
+//        present(PayWallViewController(),animated: true)
     }
     
 

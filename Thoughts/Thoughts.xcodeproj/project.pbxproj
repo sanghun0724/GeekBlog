@@ -28,6 +28,8 @@
 		B6AD168927A1353500D62F42 /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168827A1353500D62F42 /* BlogPost.swift */; };
 		B6AD168C27A13A8400D62F42 /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */; };
 		B6AD168E27A1410A00D62F42 /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */; };
+		B6AD169027A141F000D62F42 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168F27A141F000D62F42 /* Extension.swift */; };
+		B6AD169227A15E8500D62F42 /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		B6AD168827A1353500D62F42 /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
+		B6AD168F27A141F000D62F42 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallDescriptionView.swift; sourceTree = "<group>"; };
 		CA115D73B5610500F6CF912D /* Pods-Thoughts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.release.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.release.xcconfig"; sourceTree = "<group>"; };
 		D3AAC71D8005E63EE3817FE2 /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +119,7 @@
 			children = (
 				B603474A27A04ADE00CFBDF2 /* LaunchScreen.storyboard */,
 				B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */,
+				B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				B6AD168427A12C8500D62F42 /* GoogleService-Info.plist */,
 				B603473F27A04ADA00CFBDF2 /* AppDelegate.swift */,
 				B603474127A04ADA00CFBDF2 /* SceneDelegate.swift */,
+				B6AD168F27A141F000D62F42 /* Extension.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6AD168927A1353500D62F42 /* BlogPost.swift in Sources */,
+				B6AD169227A15E8500D62F42 /* PayWallDescriptionView.swift in Sources */,
 				B603474427A04ADA00CFBDF2 /* HomeViewController.swift in Sources */,
 				B6AD167E27A1179C00D62F42 /* AuthManager.swift in Sources */,
 				B6AD167427A116FF00D62F42 /* SignUpViewController.swift in Sources */,
@@ -329,6 +336,7 @@
 				B6AD168C27A13A8400D62F42 /* PayWallViewController.swift in Sources */,
 				B6AD167227A116F100D62F42 /* SignInViewController.swift in Sources */,
 				B6AD166E27A116C300D62F42 /* ProfileViewController.swift in Sources */,
+				B6AD169027A141F000D62F42 /* Extension.swift in Sources */,
 				B6AD168727A1352700D62F42 /* User.swift in Sources */,
 				B6AD167827A1173D00D62F42 /* CreateNewPostViewController.swift in Sources */,
 				B6AD167A27A1176800D62F42 /* IAPManagers.swift in Sources */,
