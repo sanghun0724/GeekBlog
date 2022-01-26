@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
     private let emailField:UITextField = {
         let field = UITextField()
         field.keyboardType = .emailAddress
+        field.leftViewMode = .always
         field.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 50)) // 약간 옆에 공간주기
         field.placeholder = "Email Address"
         field.backgroundColor = .secondarySystemBackground
@@ -23,10 +24,12 @@ class SignInViewController: UIViewController {
         field.layer.masksToBounds = true
          return field
     }()
+    
     //password Field
     private let passwordField:UITextField = {
         let field = UITextField()
         field.keyboardType = .emailAddress
+        field.leftViewMode = .always
         field.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 50)) // 약간 옆에 공간주기
         field.placeholder = "Password"
         field.isSecureTextEntry = true
@@ -66,7 +69,7 @@ class SignInViewController: UIViewController {
         view.addSubview(createAccountButton)
         
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,6 +112,11 @@ class SignInViewController: UIViewController {
     }
     
     @objc func didTapCreateAccount() {
-        
+        let vc = SignUpViewController()
+        vc.title = "create Account"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 }
