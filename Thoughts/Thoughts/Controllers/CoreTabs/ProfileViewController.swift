@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
         view.backgroundColor = .systemBackground
         setUpSignOutButton()
         setupTable()
-        title = "Profile"
+        title = "Profile" //place holder
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,11 +49,11 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     }
     
     private func setupTable() {
+        fetchProfileData()
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
 //        setUpTableHeader()
-        fetchProfileData()
     }
     
     private func setUpTableHeader(profilePhotoRef:String? = nil,name:String? = nil) {
@@ -74,7 +74,6 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
         headerView.addSubview(profilePhoto)
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePhoto))
         profilePhoto.addGestureRecognizer(tap)
-        
         
         
         // Email
@@ -115,8 +114,6 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
             return
         }
         
-       
-        
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
@@ -134,7 +131,6 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
                 self.setUpTableHeader(profilePhotoRef:user.profilePictureRef, name: user.name)
             }
         }
-        
     }
     
     private func setUpSignOutButton() {
@@ -176,11 +172,18 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Blog post goes here"
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ViewPostViewController()
+        vc.title = posts[indexPath.row].title
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
