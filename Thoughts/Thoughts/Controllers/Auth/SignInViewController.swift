@@ -119,8 +119,7 @@ class SignInViewController: UIViewController {
                 return
             }
             DispatchQueue.main.async {
-                UserDefaults.standard.set(nil, forKey: "email")
-                UserDefaults.standard.set(nil, forKey: "email")
+                UserDefaults.standard.set(email, forKey: "email")
                 let vc = TabBarViewController()
                 vc.modalPresentationStyle = .fullScreen
                 self?.present(vc,animated: true)
