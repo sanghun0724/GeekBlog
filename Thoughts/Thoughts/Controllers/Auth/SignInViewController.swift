@@ -17,12 +17,13 @@ class SignInViewController: UIViewController {
         let field = UITextField()
         field.keyboardType = .emailAddress
         field.leftViewMode = .always
+        field.autocapitalizationType = .none
         field.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 50)) // 약간 옆에 공간주기
         field.placeholder = "Email Address"
         field.backgroundColor = .secondarySystemBackground
         field.layer.cornerRadius = 8
         field.layer.masksToBounds = true
-         return field
+        return field
     }()
     
     //password Field
@@ -30,13 +31,14 @@ class SignInViewController: UIViewController {
         let field = UITextField()
         field.keyboardType = .emailAddress
         field.leftViewMode = .always
+        field.autocapitalizationType = .none
         field.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 50)) // 약간 옆에 공간주기
         field.placeholder = "Password"
         field.isSecureTextEntry = true
         field.backgroundColor = .secondarySystemBackground
         field.layer.cornerRadius = 8
         field.layer.masksToBounds = true
-         return field
+        return field
     }()
     //Sign In Button
     private let signInButton:UIButton = {
@@ -56,12 +58,12 @@ class SignInViewController: UIViewController {
         button.setTitleColor(.link, for: .normal)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Sign In"
         view.backgroundColor = .systemBackground
-//        present(PayWallViewController(),animated: true)
+        //        present(PayWallViewController(),animated: true)
         view.addSubview(headerView)
         view.addSubview(emailField)
         view.addSubview(passwordField)
@@ -108,7 +110,22 @@ class SignInViewController: UIViewController {
     }
     
     @objc func didTapSignIn() {
-        
+        guard let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty else {
+                  return
+              }
+        AuthManager.shared.signIn(email: email, password: password) { [weak self] success in
+            guard success else {
+                return
+            }
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(nil, forKey: "email")
+                UserDefaults.standard.set(nil, forKey: "email")
+                let vc = TabBarViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc,animated: true)
+            }
+        }
     }
     
     @objc func didTapCreateAccount() {
