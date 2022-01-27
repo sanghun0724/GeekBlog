@@ -68,10 +68,13 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
         profilePhoto.tintColor = .white
         profilePhoto.contentMode = .scaleAspectFit
         profilePhoto.frame = CGRect(x: (view.width-(view.width/4))/2, y: (headerView.height-(view.width/4))/1.8, width: view.width/4, height: view.width/4)
+        profilePhoto.layer.masksToBounds = true
+        profilePhoto.layer.cornerRadius = profilePhoto.width/2
         profilePhoto.isUserInteractionEnabled = true
         headerView.addSubview(profilePhoto)
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfilePhoto))
         profilePhoto.addGestureRecognizer(tap)
+        
         
         
         // Email
@@ -88,7 +91,21 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
         
         if let ref = profilePhotoRef {
             //Fetch image here
-            print("found photo ref:\(ref)")
+            StorageManager.shared.downloadUrlForProfilePicture(path: ref) { url in
+                guard let url = url else {
+                    return
+                }
+                
+                let task = URLSession.shared.dataTask(with: url) { data, _ , _ in
+                    guard let data = data else {
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        profilePhoto.image = UIImage(data: data)
+                    }
+                }
+                task.resume()
+            }
         }
     }
     
@@ -147,8 +164,15 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     }
     
     // TableView
+    
+    private var posts: [BlogPost] = []
+    
+    private func fetchPosts() {
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

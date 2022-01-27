@@ -26,8 +26,6 @@ final class StorageManager {
             .reference(withPath: "profile_pictures/\(path)/photo.png")
             .putData(pngData, metadata: nil) { metadata, error in
                 guard metadata != nil, error == nil else {
-                    print(metadata)
-                    print(path)
                     print("upload data missing")
                     completion(false)
                     return
@@ -36,8 +34,11 @@ final class StorageManager {
             }
     }
     
-    public func downloadUrlForProfilePicture(user:User,completion: @escaping (URL?) -> Void) {
-        
+    public func downloadUrlForProfilePicture(path:String,completion: @escaping (URL?) -> Void) {
+        container.reference(withPath: path)
+            .downloadURL { url, _ in
+                completion(url)
+            }
     }
     
     public func uploadBlogHeader(blogPost:BlogPost,image:UIImage?,completion: @escaping (Bool) -> Void) {
