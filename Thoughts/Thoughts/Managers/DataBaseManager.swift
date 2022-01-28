@@ -42,8 +42,36 @@ final class DatabaseManager {
         
     }
     
-    public func getPost(user: User,completion: @escaping ([BlogPost]) -> Void) {
-        
+    public func getPost(for email: String,completion: @escaping ([BlogPost]) -> Void) {
+        let userEmail = email
+            .replacingOccurrences(of: ".", with: "_")
+            .replacingOccurrences(of: "@", with: "_")
+        database
+            .collection("users")
+            .document(userEmail)
+            .collection("posts")
+            .getDocuments { snapshot, error in
+                guard let document = snapshot?.documents.compactMap({$0.data()}), error == nil else {
+                    print("get post error")
+                    return
+                }
+                
+                let posts:[BlogPost] = document.compactMap { dictonary in
+                    guard let id = dictonary["id"] as? String,
+                          let title = dictonary["title"] as? String,
+                          let body = dictonary["body"] as? String,
+                          let created = dictonary["created"] as? TimeInterval,
+                          let imageUrlString = dictonary["headerImageUrl"] as? String else {
+                              print("Invalid Post fetch conversion")
+                              return nil
+                          }
+                    
+                    let post = BlogPost(identifier: id, title: title, timestamp: created, headerImageUrl:URL(string: imageUrlString) , text: body)
+                    
+                    return post
+                }
+                completion(posts) //multiple post
+        }
     }
     
     public func insert(user: User,completion: @escaping (Bool) -> Void) {

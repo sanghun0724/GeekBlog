@@ -89,7 +89,7 @@ class CreateNewPostViewController: UITabBarController {
             return
         }
         
-        let newPostId = UUID().uuidString //random generate
+        let newPostId = UUID().uuidString //Unique number
         
         //upload header Image
         StorageManager.shared.uploadBlogHeaderImage(email: email,
@@ -120,7 +120,6 @@ class CreateNewPostViewController: UITabBarController {
                 }
             }
         }
-        
     }
     
     private func configureUI() {

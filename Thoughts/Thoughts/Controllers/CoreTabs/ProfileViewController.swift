@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
         setUpSignOutButton()
         setupTable()
         title = "Profile" //place holder
+        fetchPosts()
     }
     
     override func viewDidLayoutSubviews() {
@@ -127,6 +128,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
                 return
             }
             self.user = user
+            print(self.user)
             DispatchQueue.main.async {
                 self.setUpTableHeader(profilePhotoRef:user.profilePictureRef, name: user.name)
             }
@@ -165,6 +167,13 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     private func fetchPosts() {
         
+        DatabaseManager.shared.getPost(for: currentEmail) { [weak self] posts in
+            self?.posts = posts
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -174,7 +183,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Blog post goes here"
+        cell.textLabel?.text = post.title
         return cell
     }
     
