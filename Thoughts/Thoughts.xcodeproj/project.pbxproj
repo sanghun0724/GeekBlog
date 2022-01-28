@@ -31,6 +31,8 @@
 		B6AD169027A141F000D62F42 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD168F27A141F000D62F42 /* Extension.swift */; };
 		B6AD169227A15E8500D62F42 /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */; };
 		B6AD169527A1696800D62F42 /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD169427A1696800D62F42 /* SignInHeaderView.swift */; };
+		B6EC6F5B27A408D600605905 /* PostPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC6F5A27A408D600605905 /* PostPreviewTableViewCell.swift */; };
+		B6EC6F5D27A4090900605905 /* PostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC6F5C27A4090900605905 /* PostHeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		B6AD168F27A141F000D62F42 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallDescriptionView.swift; sourceTree = "<group>"; };
 		B6AD169427A1696800D62F42 /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
+		B6EC6F5A27A408D600605905 /* PostPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewTableViewCell.swift; sourceTree = "<group>"; };
+		B6EC6F5C27A4090900605905 /* PostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CA115D73B5610500F6CF912D /* Pods-Thoughts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.release.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.release.xcconfig"; sourceTree = "<group>"; };
 		D3AAC71D8005E63EE3817FE2 /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 		B6AD166827A1161500D62F42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6EC6F5927A4088700605905 /* Cells */,
 				B603474A27A04ADE00CFBDF2 /* LaunchScreen.storyboard */,
 				B6AD168D27A1410A00D62F42 /* PayWallHeaderView.swift */,
 				B6AD169127A15E8500D62F42 /* PayWallDescriptionView.swift */,
@@ -204,6 +209,15 @@
 				B6AD168B27A13A8400D62F42 /* PayWallViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		B6EC6F5927A4088700605905 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC6F5A27A408D600605905 /* PostPreviewTableViewCell.swift */,
+				B6EC6F5C27A4090900605905 /* PostHeaderTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D3A424E94E4257115E2F3CC2 /* Frameworks */ = {
@@ -337,10 +351,12 @@
 				B603474027A04ADA00CFBDF2 /* AppDelegate.swift in Sources */,
 				B6AD168E27A1410A00D62F42 /* PayWallHeaderView.swift in Sources */,
 				B6AD168C27A13A8400D62F42 /* PayWallViewController.swift in Sources */,
+				B6EC6F5D27A4090900605905 /* PostHeaderTableViewCell.swift in Sources */,
 				B6AD167227A116F100D62F42 /* SignInViewController.swift in Sources */,
 				B6AD169527A1696800D62F42 /* SignInHeaderView.swift in Sources */,
 				B6AD166E27A116C300D62F42 /* ProfileViewController.swift in Sources */,
 				B6AD169027A141F000D62F42 /* Extension.swift in Sources */,
+				B6EC6F5B27A408D600605905 /* PostPreviewTableViewCell.swift in Sources */,
 				B6AD168727A1352700D62F42 /* User.swift in Sources */,
 				B6AD167827A1173D00D62F42 /* CreateNewPostViewController.swift in Sources */,
 				B6AD167A27A1176800D62F42 /* IAPManagers.swift in Sources */,

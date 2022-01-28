@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     private let tableView:UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(PostPreviewTableViewCell.self, forCellReuseIdentifier: PostPreviewTableViewCell.identifer)
         return tableView
     }()
     
@@ -128,7 +128,6 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
                 return
             }
             self.user = user
-            print(self.user)
             DispatchQueue.main.async {
                 self.setUpTableHeader(profilePhotoRef:user.profilePictureRef, name: user.name)
             }
@@ -182,15 +181,21 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = post.title
+       guard let cell = tableView.dequeueReusableCell(withIdentifier:PostPreviewTableViewCell.identifer, for: indexPath) as? PostPreviewTableViewCell else {
+           fatalError()
+       }
+        cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ViewPostViewController()
-        vc.title = posts[indexPath.row].title
+        let vc = ViewPostViewController(post: posts[indexPath.row])
+        vc.title = "post"
         navigationController?.pushViewController(vc, animated: true)
     }
     
