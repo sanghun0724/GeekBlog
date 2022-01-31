@@ -20,7 +20,7 @@ class PostPreviewTableViewCellViewModel {
 }
 
 class PostPreviewTableViewCell: UITableViewCell {
-    static let identifer = "PostPreviewTableViewCell"
+    static let identifier = "PostPreviewTableViewCell"
     
     private let postImageView:UIImageView = {
         let imageView = UIImageView()

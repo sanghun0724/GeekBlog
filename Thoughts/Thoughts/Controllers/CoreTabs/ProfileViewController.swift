@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     private let tableView:UITableView = {
         let tableView = UITableView()
-        tableView.register(PostPreviewTableViewCell.self, forCellReuseIdentifier: PostPreviewTableViewCell.identifer)
+        tableView.register(PostPreviewTableViewCell.self, forCellReuseIdentifier: PostPreviewTableViewCell.identifier)
         return tableView
     }()
     
@@ -181,7 +181,7 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-       guard let cell = tableView.dequeueReusableCell(withIdentifier:PostPreviewTableViewCell.identifer, for: indexPath) as? PostPreviewTableViewCell else {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier:PostPreviewTableViewCell.identifier, for: indexPath) as? PostPreviewTableViewCell else {
            fatalError()
        }
         cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))

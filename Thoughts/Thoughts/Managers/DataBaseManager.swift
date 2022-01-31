@@ -39,7 +39,44 @@ final class DatabaseManager {
     }
     
     public func getAllPosts(completion: @escaping ([BlogPost]) -> Void) {
-        
+        // Get all users
+        // From each user, get post  -> this is how to "getAllPosts"
+        var result:[BlogPost] = []
+        database
+            .collection("users")
+            .getDocuments { [weak self] snapshot,error in //하나의 documents가 아닌 모든 documents 가져오기
+                guard let documents = snapshot?.documents.compactMap({$0.data()}),
+                      error == nil else {
+                    return
+                }
+                guard let self = self else { return }
+                
+                let emails:[String] = documents.compactMap({ $0["email"] as? String})
+                
+                guard !emails.isEmpty else {
+                    print("email is empty")
+                    completion([])
+                    return
+                }
+                
+                
+                let group = DispatchGroup()
+                
+                for email in emails {
+                    group.enter()
+                    self.getPost(for: email) { userPosts in
+                        defer {
+                            group.leave()
+                        }
+                        result.append(contentsOf: userPosts)
+                    }
+                }
+                
+                group.notify(queue: .global()) {
+                    print("Feed posts \(result.count)")
+                    completion(result)
+                }
+            }
     }
     
     public func getPost(for email: String,completion: @escaping ([BlogPost]) -> Void) {
