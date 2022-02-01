@@ -110,11 +110,15 @@ class CreateNewPostViewController: UITabBarController {
                 
                 DatabaseManager.shared.insert(blogPost: post, email: email) {[weak self] posted in
                     guard posted else {
+                        DispatchQueue.main.async {
+                            HapticManager.shared.vibrate(for: .error)
+                        }
                         print("Fail to blog insert")
                         return
                     }
                     
                     DispatchQueue.main.async {
+                        HapticManager.shared.vibrate(for: .success)
                         self?.didTapCancel()
                     }
                 }

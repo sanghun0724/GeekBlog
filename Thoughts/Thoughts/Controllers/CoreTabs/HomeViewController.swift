@@ -45,9 +45,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
         view.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(composeButton)
         view.addSubview(tableView)
-        
+        view.addSubview(composeButton)
         composeButton.addTarget(self, action: #selector(didTapCreate), for: .touchUpInside)
         fetchAllPosts()
     }
@@ -109,6 +108,15 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        HapticManager.shared.vibrateForSelection()
+        
+        guard IAPManagers.shared.canViewPost else {
+            let vc = PayWallViewController()
+            present(vc,animated: true)
+            return
+        }
+        
         let vc = ViewPostViewController(post: posts[indexPath.row])
         vc.title = "post"
         navigationController?.pushViewController(vc, animated: true)

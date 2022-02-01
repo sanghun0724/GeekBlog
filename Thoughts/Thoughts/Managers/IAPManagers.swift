@@ -12,9 +12,25 @@ import StoreKit
 final class IAPManagers {
     static let shared = IAPManagers()
     
+    static let formatter = ISO8601DateFormatter()
     //RevenueCAt Shared Secret
     //f3c0839a369747149e8352ec56ab4eaa
     
+    private var postEligibleViewDate:Date? {
+        get {
+            guard let string = UserDefaults.standard.string(forKey: "postEligibleViewDate") else {
+                return nil
+            }
+            let date = IAPManagers.formatter.date(from: string)
+            return date
+        }
+        set {
+            guard let date = newValue else { return }
+            let string = IAPManagers.formatter.string(from: date)
+            UserDefaults.standard.set(string,forKey: "postEligibleViewDate")
+            
+        }
+    }
     
     private init() {}
     
@@ -113,5 +129,25 @@ final class IAPManagers {
 //(subscribe하면 기능 추가 해주는거)
 
 extension IAPManagers {
-
+    var canViewPost:Bool {
+        if isPremium() {
+            return true 
+        }
+        guard let date = postEligibleViewDate else {
+            return true
+        }
+        UserDefaults.standard.set(0,forKey: "post_views")
+        return Date() >= date
+    }
+    
+    public func logPostViewed() {
+        var total = UserDefaults.standard.integer(forKey: "post_views")
+            UserDefaults.standard.set(total+1,forKey: "post_views")
+     
+        if total == 2 {
+            let hour: TimeInterval = 60 * 60
+            postEligibleViewDate = Date().addingTimeInterval(hour * 24)
+        }
+    }
+    
 }

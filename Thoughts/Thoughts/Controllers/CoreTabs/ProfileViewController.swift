@@ -147,6 +147,10 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
             AuthManager.shared.signOut { success in
                 if success {
                     DispatchQueue.main.async {
+                        UserDefaults.standard.set(nil,forKey: "email")
+                        UserDefaults.standard.set(nil,forKey: "name")
+                        UserDefaults.standard.set(false,forKey: "premium")
+                        
                         let signInVC = SignInViewController()
                         signInVC.navigationItem.largeTitleDisplayMode = .always
                         let navVC = UINavigationController(rootViewController: signInVC)
@@ -194,9 +198,29 @@ class ProfileViewController: UIViewController ,UITableViewDelegate , UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ViewPostViewController(post: posts[indexPath.row])
-        vc.title = "post"
-        navigationController?.pushViewController(vc, animated: true)
+        
+        HapticManager.shared.vibrateForSelection()
+        
+        var isOwnedByCurrentUser = false
+        if let email = UserDefaults.standard.string(forKey: "email") {
+            isOwnedByCurrentUser = email == currentEmail
+        }
+        
+        if !isOwnedByCurrentUser {
+            if IAPManagers.shared.canViewPost {
+                let vc = ViewPostViewController(post: posts[indexPath.row],isOwnedByCurrentUser: isOwnedByCurrentUser)
+                vc.title = "post"
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc  = PayWallViewController()
+                present(vc,animated: true)
+            }
+        } else {
+            //out post
+            let vc = ViewPostViewController(post: posts[indexPath.row],isOwnedByCurrentUser: isOwnedByCurrentUser)
+            vc.title = "post"
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
