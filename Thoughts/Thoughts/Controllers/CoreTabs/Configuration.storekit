@@ -1,0 +1,49 @@
+{
+  "identifier" : "43CC3B12",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "6F6F9191",
+      "localizations" : [
+
+      ],
+      "name" : "Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "3.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "C43D85D5",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlock all Thoughts posts",
+              "displayName" : "Premiu, Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.sangheon.Thoughts.premium",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Primium Monthly",
+          "subscriptionGroupID" : "6F6F9191",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

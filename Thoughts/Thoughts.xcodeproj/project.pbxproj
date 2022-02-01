@@ -13,6 +13,8 @@
 		B603474427A04ADA00CFBDF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603474327A04ADA00CFBDF2 /* HomeViewController.swift */; };
 		B603474927A04ADE00CFBDF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B603474827A04ADE00CFBDF2 /* Assets.xcassets */; };
 		B603474C27A04ADE00CFBDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B603474A27A04ADE00CFBDF2 /* LaunchScreen.storyboard */; };
+		B698FB3C27A90A970074A106 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B698FB3B27A90A970074A106 /* StoreKit.framework */; };
+		B698FB3E27A90CE10074A106 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B698FB3D27A90CE10074A106 /* StoreKitTestCertificate.cer */; };
 		B6AD166E27A116C300D62F42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD166D27A116C300D62F42 /* ProfileViewController.swift */; };
 		B6AD167027A116DC00D62F42 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD166F27A116DC00D62F42 /* TabBarViewController.swift */; };
 		B6AD167227A116F100D62F42 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD167127A116F100D62F42 /* SignInViewController.swift */; };
@@ -44,6 +46,9 @@
 		B603474827A04ADE00CFBDF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B603474B27A04ADE00CFBDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B603474D27A04ADE00CFBDF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B698FB3A27A908FB0074A106 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		B698FB3B27A90A970074A106 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B698FB3D27A90CE10074A106 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		B6AD166D27A116C300D62F42 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B6AD166F27A116DC00D62F42 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B6AD167127A116F100D62F42 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3070ACE6CA123F1301614942 /* Pods_Thoughts.framework in Frameworks */,
+				B698FB3C27A90A970074A106 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +187,8 @@
 				B603474327A04ADA00CFBDF2 /* HomeViewController.swift */,
 				B6AD166D27A116C300D62F42 /* ProfileViewController.swift */,
 				B6AD166F27A116DC00D62F42 /* TabBarViewController.swift */,
+				B698FB3A27A908FB0074A106 /* Configuration.storekit */,
+				B698FB3D27A90CE10074A106 /* StoreKitTestCertificate.cer */,
 			);
 			path = CoreTabs;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 		D3A424E94E4257115E2F3CC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B698FB3B27A90A970074A106 /* StoreKit.framework */,
 				D3AAC71D8005E63EE3817FE2 /* Pods_Thoughts.framework */,
 			);
 			name = Frameworks;
@@ -291,6 +300,7 @@
 				B603474C27A04ADE00CFBDF2 /* LaunchScreen.storyboard in Resources */,
 				B603474927A04ADE00CFBDF2 /* Assets.xcassets in Resources */,
 				B6AD168527A12C8500D62F42 /* GoogleService-Info.plist in Resources */,
+				B698FB3E27A90CE10074A106 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ class TabBarViewController: UITabBarController {
     
     private func setupControllers() {
         guard let currentUserEmail = UserDefaults.standard.string(forKey: "email") else {
+            print("dont have current user email")
             return
         }
         let home = HomeViewController()

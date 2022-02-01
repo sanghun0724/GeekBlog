@@ -34,6 +34,14 @@ class HomeViewController: UIViewController ,UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if !IAPManagers.shared.isPremium() {
+                let vc = PayWallViewController()
+                let navVC = UINavigationController(rootViewController: vc)
+                self.present(navVC,animated: true)
+            }
+        }
+        
         view.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
