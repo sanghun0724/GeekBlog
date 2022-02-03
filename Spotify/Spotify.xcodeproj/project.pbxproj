@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B604440927AB9AEC009B57AD /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604440827AB9AEC009B57AD /* AuthResponse.swift */; };
+		B604442B27AC07A6009B57AD /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B604442A27AC07A6009B57AD /* SettingsModels.swift */; };
 		B6731CF127AAC33F00930EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731CF027AAC33F00930EBF /* AppDelegate.swift */; };
 		B6731CF327AAC33F00930EBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731CF227AAC33F00930EBF /* SceneDelegate.swift */; };
 		B6731CF527AAC33F00930EBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731CF427AAC33F00930EBF /* HomeViewController.swift */; };
@@ -37,6 +38,7 @@
 		420FA5D02F2860C78866718E /* Pods_Spotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AEDFB45334D41F7603F91F9 /* Pods-Spotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify.release.xcconfig"; path = "Target Support Files/Pods-Spotify/Pods-Spotify.release.xcconfig"; sourceTree = "<group>"; };
 		B604440827AB9AEC009B57AD /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		B604442A27AC07A6009B57AD /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		B6731CED27AAC33F00930EBF /* Spotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6731CF027AAC33F00930EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6731CF227AAC33F00930EBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				B6731D2827AAC7E500930EBF /* Artist.swift */,
 				B6731D2A27AAC7F800930EBF /* UserProfile.swift */,
 				B604440827AB9AEC009B57AD /* AuthResponse.swift */,
+				B604442A27AC07A6009B57AD /* SettingsModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B6731D1F27AAC6DD00930EBF /* AuthManager.swift in Sources */,
 				B6731CF527AAC33F00930EBF /* HomeViewController.swift in Sources */,
 				B6731D2727AAC7DC00930EBF /* AudioTrack.swift in Sources */,
+				B604442B27AC07A6009B57AD /* SettingsModels.swift in Sources */,
 				B6731D0B27AAC56300930EBF /* TabBarController.swift in Sources */,
 				B6731D1327AAC65400930EBF /* AuthViewController.swift in Sources */,
 				B604440927AB9AEC009B57AD /* AuthResponse.swift in Sources */,
