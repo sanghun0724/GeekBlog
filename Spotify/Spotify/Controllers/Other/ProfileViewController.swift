@@ -5,6 +5,7 @@
 //  Created by sangheon on 2022/02/02.
 //
 
+import SDWebImage
 import UIKit
 
 class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -54,8 +55,27 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         models.append("Email Address: \(model.email)")
         models.append("User ID: \(model.id)")
         models.append("Plan: \(model.product)")
+        createTableHeader(with:"testimage")
         tableView.reloadData()
         
+    }
+    
+    private func createTableHeader(with string:String?) {
+        guard let urlString = string, let url = URL(string: urlString) else {
+            return
+        }
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width/1.5))
+        let imageSize:CGFloat = headerView.frame.height/2
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageSize, height: imageSize))
+        imageView.image = UIImage(systemName: "person")
+        headerView.addSubview(imageView)
+        imageView.center = headerView.center
+        imageView.contentMode = .scaleAspectFill
+        //imageView.sd_setImage(with: url, completed: nil)
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = imageSize/2
+        tableView.tableHeaderView = headerView
     }
     
     private func failedToGetProfile() {
